@@ -13,7 +13,7 @@
 <br/>
 
 <p align="center">
-<a href="https://github.com/MichaelTr7/FolderPaint/releases/download/FolderPaint/FolderPaint.zip"><img src="/Images/Button.png" width="15%"></a>
+<a href="https://github.com/MichaelTr7/FolderPaint/releases/download/FolderPaint/FolderPaint.zip"><img src="/Images/Button.png" width="30%"></a>
 </p>
 
 
