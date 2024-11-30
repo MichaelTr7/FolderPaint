@@ -14,7 +14,8 @@
 
 
 <p align="center">
-<a href="https://github.com/MichaelTr7/FolderPaint/releases/download/FolderPaint/FolderPaint.zip><img src="/Images/Button.png" width="20%"></a>
+<a href="https://github.com/MichaelTr7/FolderPaint/releases/download/FolderPaint/FolderPaint.zip>
+  <img src="/Images/Button.png" width = "110"><br/>
 </p>
 
 <p align ="center">
