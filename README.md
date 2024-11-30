@@ -6,7 +6,7 @@
 
 
 <p align="center">
-  <img src="/Images/IconConverter.png" width = "110"><br/>
+  <img src="/Images/Icon.png" width = "110"><br/>
 <b>Icon Converter</b>
 </p>
 
@@ -18,7 +18,7 @@
 </p>
 
 <p align ="center">
-<img src = "Images/Icon Converter Summary Page.png" width = "700">
+<img src = "Images/Preview.png" width = "700">
 </p>
 
 ### Features
