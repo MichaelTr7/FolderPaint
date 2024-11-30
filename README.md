@@ -13,11 +13,6 @@
 
 
 <p align="center">
-<a href="https://github.com/MichaelTr7/FolderPaint/releases/download/FolderPaint/FolderPaint.zip></a>
-</p>
-
-
-<p align="center">
   <img src="/Images/Icon.png" width = "110"><br/>
 <b>Download</b>
 </p>
