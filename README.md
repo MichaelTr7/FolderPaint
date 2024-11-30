@@ -3,23 +3,22 @@
 
 
 
-
-
-<p align="center">
-<b>Icon Converter</b>
+<p align ="center">
+<img src = "Images/Icon.png" width = "100">
 </p>
 
+<p align="center">
+<b>FolderPaint</b>
+</p>
 <br/>
 
-
 <p align="center">
-  <img src="/Images/Icon.png" width = "110"><br/>
-<b>Download</b>
+<a href="https://github.com/MichaelTr7/FolderPaint/releases/download/FolderPaint/FolderPaint.zip"><img src="/Images/Button.png" width="15%"></a>
 </p>
 
 
 <p align ="center">
-<img src = "Images/Preview.png" width = "700">
+<img src = "Images/Preview.png" width = "500">
 </p>
 
 ### Features
