@@ -19,7 +19,7 @@
 
 <p align="center">
   <img src="/Images/Icon.png" width = "110"><br/>
-<b>Icon Converter</b>
+<b>Download</b>
 </p>
 
 
