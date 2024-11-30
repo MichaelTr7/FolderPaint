@@ -1,0 +1,497 @@
+*{
+    font-family: Arial;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+}
+
+
+body{
+    margin: 0;
+    background-color: #ECE3DA;
+    font-size: 0.8rem;
+    background-image: url("../Assets/Jeans 4.png");
+    background-size: 3rem;
+    overflow-x: hidden;
+    overflow-y: hidden; 
+}
+
+
+#Title_Bar{
+    /* border: 1px dashed black; */
+    height: 2rem;
+    box-sizing: border-box;
+}
+
+#Left_Panel, #Right_Panel{
+    position: relative;
+    display: grid;
+    height: calc(100vh - 2rem);
+    width: 50%;
+    /* background-color: red; */
+    /* border: 1px dashed grey; */
+    box-sizing: border-box;
+}
+
+#Left_Panel{
+    float: left;
+    grid-template-rows: 3.2fr 4fr;
+    width: 53%;
+}
+
+#Right_Panel{
+    float: right;
+    width: 47%;
+}
+
+#Slider_Container,#Colour_Palette,#Preview_Panel{
+    background-color: #ECE3DA;
+    --Slider_Container_Padding: 0.4rem;
+    position: relative;
+    margin: 0.7rem;
+    border-radius: 1.1rem;
+    box-shadow: 0 0.1rem 0.2rem 0rem rgba(0,0,0,0.15), inset 0 0.05rem 0.05rem 0.02rem rgba(255,255,255,0.7);
+    background-image: url("../Assets/Jeans 4.png");
+    background-size: 20%;
+}
+
+#Inner_Slider_Container{
+    --Inner_Slider_Container_Padding: 15px;
+    height: calc(100% - 2*var(--Inner_Slider_Container_Padding));
+    width: calc(100% - 2*var(--Inner_Slider_Container_Padding));
+    display: grid; 
+    grid-template-rows: repeat(1fr,4);
+    grid-template-columns: 2fr 1fr;
+    margin: var(--Inner_Slider_Container_Padding);
+    column-gap: 12px;
+    align-items: center;
+}
+
+.Slider_Labels{
+    display: flex;
+    font-size: 0.65rem;
+    align-items: center;
+    color: #3C5C78;
+    pointer-events: none;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+}
+
+input[type="range"] {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 100%; /* Make slider take full width */
+    height: 10px; /* Height of the track (rail) */
+    background: rgba(0,0,0,0.2); /* Color of the track */
+    border-radius: 5px; /* Rounded corners for track */
+    position: relative; /* Required for pseudo-element positioning */
+    box-shadow: inset 0 2px 3px 0 rgba(0,0,0,0.2);
+
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default thumb styling */
+    appearance: none;
+    width: 10px; /* Width of the thumb */
+    height: 10px; /* Height of the thumb */
+    background: #446D92; /* Color of the thumb */
+    border-radius: 50%; /* Make the thumb circular */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: relative;
+    z-index: 1; /* Ensure thumb is above the rail */
+    /* box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.2); */
+    transform: scale(1);
+    transition: 0.2s;
+    border: 1px solid #446D92;
+
+  }
+  
+  /* Hover effect on the thumb */
+input[type="range"]:hover::-webkit-slider-thumb {
+    /* background: #0056b3; */
+    transform: scale(2);
+    border: 1px solid rgba(255,255,255,1);
+  }
+  
+  input[type="range"]::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #446D92;
+    border-radius: 50%;
+    cursor: pointer;
+    /* box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.2); */
+
+  }
+  
+  input[type="range"]:before {
+    content: ''; /* Create a pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px; /* Match height of the rail */
+    background: #446D92; /* Color of the filled part */
+    background: linear-gradient(to right, #9da5ad, rgba(0,0,0,0));
+    border-radius: 5px; /* Rounded corners for filled part */
+    z-index: 0; /* Ensure the filled part is behind the thumb */
+  }
+  
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 10px;
+    background: transparent; /* Make the original track transparent */
+  }
+  
+  input[type="range"]:focus {
+    outline: none; /* Remove outline on focus */
+  }
+
+  input[type="range"]:before {
+    width: var(--progress, 0%); /* Width based on custom property */
+  }
+
+#Colour_Palette{
+    margin-top: 0;
+}
+
+#Preview_Panel{
+    margin-left: 0;
+    background-color: #446D92;
+}
+
+#Slider_Container::before, #Colour_Palette::before, #Preview_Panel::before, #Slider_Container::before{
+    content: "";
+    position: absolute;
+    top: var(--Slider_Container_Padding);
+    left: var(--Slider_Container_Padding);
+    right: var(--Slider_Container_Padding);
+    bottom: var(--Slider_Container_Padding);
+    border: 2px dashed rgba(0,0,0,0.1);
+    pointer-events: none;
+    box-sizing: border-box;
+    border-radius: 0.9rem;
+    
+}
+
+#Preview_Panel::before{
+    border: 2px dashed rgba(0,0,0,0.2);
+
+}
+
+
+
+#Preview_Panel{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-gap: 20px;
+    padding: 25px;
+    background-image: url("../Assets/Jeans 4.png");
+    background-size: 3.3%;
+}
+
+.Folder_Selector{
+    grid-column: 1 / span 2;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.15);
+    box-shadow: inset 0 5px 10px 0 rgba(0,0,0,0.2), inset 0 -1px 2px 1px rgba(255,255,255,0.2);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ECE3DA;
+    font-size: 0.75rem;
+    font-weight: bold;
+    box-sizing: border-box;
+    border: 2px dashed rgba(255,255,255,0);
+    transition: 0.2s ease-in-out;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+    display: grid;
+    grid-template-rows: 1.8fr 1fr;
+    grid-template-columns: 1fr;
+    position: relative;
+}
+
+#Drop_Zone_Label{
+    display: flex;
+    height: 100%;
+    pointer-events: none;
+    text-align: center;
+    justify-content: center;
+    align-items: top;
+    pointer-events: none;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+}
+
+#Selected_Banner{
+    height: 100%;
+    background-image: url("../Assets/Drop_Folder_Symbol.png");
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+}
+
+.Folder_Preview_Container{
+    position: absolute;
+    --Padding: 10px;
+    height: calc(100% - 2*var(--Padding));
+    width: calc(100% - 2*var(--Padding));
+    box-sizing: border-box;
+    margin: var(--Padding);
+    border-radius: 6px;
+    box-sizing: border-box;
+    pointer-events: none;
+    /* border: 1px solid rgba(0,0,0,0.2); */
+    display: grid;
+    grid-template-rows: 4fr 1fr;
+    grid-template-columns: 1fr;
+    background-color: #3C5C78;
+    background-image: url("../Assets/Jeans 4.png");
+    background-size: 20%;   
+    transition: 0.1s ease-in-out;
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+
+.Show_Folder_Preview{
+    transform: scale(1);
+    opacity: 1;
+}
+
+#Folder_Preview{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#Folder_Image_Container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    ;
+    /* background-color: red; */
+}
+
+#Folder_Preview_Image{
+    width: auto;
+    height: 95%; /* maintain aspect ratio */
+    object-fit: contain;
+
+}
+
+ #Pseudo_Folder_Preview_Image{
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+ }
+
+
+#Selected_Folder_Summary_Label{
+    /* border: 1px solid white; */
+    display: flex;
+    height: 100%;
+    pointer-events: none;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+}
+
+
+.Folder_Selector:hover{
+    border: 2px dashed rgba(255,255,255,0.8);
+    transition: 0.2s ease-in-out;
+    box-shadow: inset 0 5px 10px 0 rgba(0,0,0,0.2), inset 0 -1px 2px 1px rgba(255,255,255,0.2), 0 0px 20px 10px rgba(42,139,227,0.4);
+}
+
+
+.Clicked_Folder_Selector{
+    -webkit-animation: Clicked_Folder_Selector_Keyframes 1s;
+    animation: Clicked_Folder_Selector_Keyframes 1s ease-out;
+}
+  
+@keyframes Clicked_Folder_Selector_Keyframes{
+    0% {transform: scale(1);}
+    50% {transform: scale(1.2);}
+    100% {transform: scale(1);}
+}
+
+.Highlight_Drop_Zone{
+    border: 2px dashed rgba(255,255,255,0.8);
+    box-shadow: inset 0 5px 10px 0 rgba(0,0,0,0.2), inset 0 -1px 2px 1px rgba(255,255,255,0.2), 0 0px 20px 10px rgba(42,139,227,0.4);
+}
+
+
+#Revert_Button, #Apply_Colour_Button{
+    display: flex;
+    /* border: 1px solid grey; */
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    background-color: rgba(0,0,0,0.15);
+    color: rgba(0,0,0,0.5); 
+    opacity: 1;
+}
+
+
+#Revert_Button > .Inner_Buttons, #Apply_Colour_Button > .Inner_Buttons{
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    grid-template-columns: 1fr;
+}
+
+#Revert_Button_Label, #Apply_Colour_Button_Label{
+    display: flex;
+    font-size: 0.60rem;
+    color:#ECE3DA;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none;
+}
+
+#Revert_Button_Icon, #Apply_Colour_Button_Icon{
+    height: 100%;
+    width: 100%;
+    background-image: url("../Assets/Revert_Arrow.png");
+    background-position: center 3px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#Apply_Colour_Button_Icon{
+    background-image: url("../Assets/Apply_Symbol.png");
+    background-position: center 3px;
+    background-size: contain;
+
+}
+
+#Revert_Button, #Apply_Colour_Button{
+    font-size: 0.75rem;
+    /* font-weight: bold; */
+    box-sizing: border-box;
+    border: 2px dashed rgba(255,255,255,0);
+    transition: 0.2s ease-in-out;
+    pointer-events: all;
+}
+
+#Revert_Button:hover,#Apply_Colour_Button:hover{
+    border: 2px dashed rgba(255,255,255,0.8);
+    box-shadow: inset 0 5px 10px 0 rgba(0,0,0,0.2), inset 0 -1px 2px 1px rgba(255,255,255,0.2), 0 0px 20px 10px rgba(42,139,227,0.4);
+}
+
+.Inner_Buttons{
+    border: 2px dashed rgba(0,0,0,0.15);
+    height: 85%;
+    width: 85%;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.Loading_Panel{
+    position: absolute;
+    box-sizing: border-box;
+    --Padding: 15px;
+    height: calc(100% - 2*var(--Padding));
+    width: calc(100% - 2*var(--Padding));
+    border-radius: 12px;
+    margin: var(--Padding);
+    background-color: rgba(0,0,0,0.05);
+    --Blur: blur(12px);
+    backdrop-filter: var(--Blur);
+    -webkit-backdrop-filter: var(--Blur);
+    color: white;
+    font-weight: bold;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 17px;
+    pointer-events: none;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.3s ease-in-out;
+}
+
+.Show_Loading_Panel{
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+}
+
+#Painting_Folder_Label{
+    /* background-color: red; */
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    text-align: center;
+}
+
+#Loading_Bar_Container{
+    display: flex;
+    justify-content: center;
+}
+
+#Progress_Bar_Container{
+    height: 0.4rem;
+    width: 6rem;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 1000px;
+}
+
+#Progress_Bar{
+    display: flex;
+    height: 100%;
+    width: 0%;
+    background-color: white;
+    border-radius: 1000px;
+    transition: 0.2s;
+}
+
+progress {
+    height: 0.4rem;
+    width: 6rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+
+/* Background color */
+progress::-webkit-progress-bar {
+    background-color: rgba(255,255,255,0.2);
+}
+
+    /* Filled portion color */
+    progress::-webkit-progress-value {
+    background-color: rgba(255,255,255,1);
+}
+
+.Button_Press_Animation{
+    animation: Squeeze_Keyframes 0.3s ease-out forwards;
+  }
+
+  @keyframes Squeeze_Keyframes{
+    0%{
+      transform: scale(1)  translateY(0px);
+    }
+    50%{
+      transform: scale(0.95) translateY(2px);
+    }
+    100%{
+      transform: scale(1) translateY(0px);
+    }
+  }
+
+

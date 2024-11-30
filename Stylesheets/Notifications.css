@@ -1,0 +1,163 @@
+
+.Notification_Bar{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 20px 4fr;
+    position: absolute;
+    z-index: 10;
+    color: #3C5C78;
+    font-size: 0.65rem;
+    top: 0;
+    right: 0;
+    background-color: rgba(255,255,255,0.5);
+    margin-right: 15px;
+    margin-top: 7px;
+    height: 20px;
+    width: 185px;
+    border-radius: 10px;
+    padding: 5px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.2);
+    transform: translateY(-100px);
+    transition: 0.2s ease-in-out;
+}
+
+.Show_Notification_Bar{
+    transform: translateY(0px);
+}
+
+#Application_Icon{
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 5px;
+    background-image: url("../Assets/Icon.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#Notification_Message{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.7rem;
+}
+
+
+.Delete_Favourite_Animation{
+    animation: 0.2s Delete_Favourite_Keyframes ease-in-out forwards;
+}
+
+@keyframes Delete_Favourite_Keyframes{
+    0%{transform: scale(1);}
+    100%{transform: scale(0);}
+}
+
+
+
+#Setup_Panel{
+    position: fixed;
+    z-index: 10;
+    --Spacing: 5px;
+    margin: var(--Spacing);
+    backdrop-filter: blur(100px);
+    height:calc(100vh - 2*var(--Spacing));
+    width:calc(100vw - 2*var(--Spacing));
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    transition: 0.2s;
+}
+
+
+
+
+
+
+#Setup_Title, #Subtitle_1, #Install_Button, #Subtitle_2, #Terminal_Window{
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    align-items: end;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    padding-bottom: 12px;
+}
+
+#Subtitle_1, #Subtitle_2, #Install_Button, #Terminal_Window, #Done_Button{
+    font-size: 12px;
+    align-items: start;
+    color: rgba(255,255,255,0.5);
+}
+
+#Subtitle_1{
+    margin-top: 20px;
+}
+
+#Install_Button > div{
+    display: flex;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 1000px;
+    height: 10px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-top: -10px;;
+    transition: 0.2s;
+}
+
+#Install_Button > div:hover{
+    background-color: rgba(255,255,255,0.5);
+}
+
+#Terminal_Window{
+    align-items: start;
+}
+
+
+#Terminal_Window > div{
+    display: flex;
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: -30px;
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+    user-select: all; 
+    -webkit-user-select: all; 
+    -ms-user-select: all;
+}
+
+
+#Done_Button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#Done_Button > div{
+    display: flex;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 1000px;
+    height: 10px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-top: -15px;;
+    transition: 0.2s;
+}
+
+
+#Done_Button > div:hover{
+    background-color: rgba(255,255,255,0.5);
+}

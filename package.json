@@ -1,0 +1,73 @@
+{
+  "name": "folder-paint",
+  "productName": "Folder Paint",
+  "version": "1.0.0",
+  "description": "A macOS folder colour changing program",
+  "main": "main.js",
+  "author": "Designed with Stardust",
+  "license": "MIT",
+  "build": {
+    "appId": "com.folderpaint.app",
+    "files": [
+      "JavaScript/**/*",
+      "Stylesheets/",
+      "Assets/",
+      "Sound_Effects/",
+      "main.js",
+      "index.html",
+      "./Processing",
+      "/*"
+    ],
+    "extraFiles": [
+      "Processing_Folder"
+    ],
+    "directories": {
+      "output": "build"
+    },
+    "productName": "FolderPaint",
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "identity": null,
+      "icon": "assets/MacOS_Icon.icns",
+      "category": "public.app-category.utilities"
+    },
+    "dmg": {
+      "background": "assets/background.tiff",
+      "icon": "assets/MacOS_Icon.icns",
+      "iconSize": 100,
+      "window": {
+        "width": 544,
+        "height": 317
+      },
+      "contents": [
+        {
+          "x": 145,
+          "y": 170
+        },
+        {
+          "x": 399,
+          "y": 170,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-packager ."
+  },
+  "dependencies": {
+    "applescript": "^1.0.0",
+    "electron-store": "^10.0.0"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-packager": "^17.1.2"
+  }
+}

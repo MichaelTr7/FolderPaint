@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link href="./Stylesheets/Layout.css" rel="stylesheet">
+    <link href="./Stylesheets/Pallette.css" rel="stylesheet">
+    <link href="./Stylesheets/Notifications.css" rel="stylesheet">
+    <script src="./JavaScript/ChangeIcon.js"></script>
+    <!-- <script src="./renderer.js"></script> -->
+    <script src="./JavaScript/Processing_Change.js"></script>
+    <script src="./JavaScript/Canvas.js"></script>
+    <script src="./JavaScript/Pallete.js"></script>
+    <script src="./JavaScript/QualityFeatures.js"></script>
+
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <audio id = "Error_Sound_Effect">
+      <source src = "Sound_Effects/Sound_Effect_1.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id = "Converting_Sound_Effect">
+      <source src = "Sound_Effects/Sound_Effect_3.mp3" type="audio/mpeg">
+    </audio>
+    
+    <audio id = "Export_Sound_Effect">
+      <source src = "Sound_Effects/Sound_Effect_4.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="Setup_Panel">
+      <div id="Setup_Title">Requires Apple Command Line Tools</div>
+      <div id="Subtitle_1">Method 1: Install Button</div>
+      <div id="Install_Button">
+            <div id="Install_Button_Actual">Install</div>
+        
+      </div>
+      <div id="Subtitle_2">Method 2: Terminal Command</div>
+      <div id="Terminal_Window">
+        <div>xcode-select --install</div>
+      </div>
+      <div id="Done_Button">
+        <div id="Done_Button_Actual">Done</div>
+
+      </div>
+    </div>
+
+
+
+
+
+    <div id="Title_Bar" style="-webkit-app-region: drag"></div>
+    <canvas id="Hidden_Canvas" style="display: none;"></canvas>
+
+
+    <div id="Notification_Bar" class="Notification_Bar">
+      <div id="Application_Icon"></div>
+      <div id="Notification_Message">Completed colour changes</div>
+    </div>
+
+    <div id="Left_Panel">
+      <div id="Slider_Container">
+        <div id="Inner_Slider_Container">
+            <input id="Hue_Slider" type="range" min="0" max="360" value="0">
+            <label class="Slider_Labels" for="">Hue</label>
+            <input id="Saturation_Slider" type="range" min="0" max="300" value="100">
+            <label class="Slider_Labels" for="">Saturation</label>
+            <input id="Brightness_Slider" type="range" min="0" max="300" value="100">
+            <label class="Slider_Labels" for="">Brightness</label>
+            <input id="Contrast_Slider" type="range" min="0" max="300" value="100">
+            <label class="Slider_Labels" for="">Contrast</label>
+
+            <div id="Favourite_Button">&#9733;</div>
+        </div>
+
+      </div>
+      <div id="Colour_Palette">
+        <label id="Presets_Label">Presets Colours:</label>
+        <div id="Presets_Grid">
+          <div id="Preset_Purple" class="Pallete_Colours"></div>
+          <div id="Preset_Pink" class="Pallete_Colours"></div>
+          <div id="Preset_Cocoa" class="Pallete_Colours"></div>
+          <div id="Preset_Teal" class="Pallete_Colours"></div>
+          <div id="Preset_Orange" class="Pallete_Colours"></div>
+          
+        </div>
+        <label id="Spacer"></label>
+        <label id="Favourites_Label">Favourites: (scroll with ← and →)</label>
+        <div id="Favourites_Grid">
+          
+          <div id="Plus_Button">
+            <div id="Plus_Button_Indent">+</div>
+          </div>
+          <div id="Store_Grid">
+            <template id="Favourite_Colours_Template">
+              <div class="Favourite_Colours" data-hue="0" data-saturation="1" data-brightness="1" data-contrast="1"></div>
+            </template>
+              
+             
+
+
+          </div>
+
+
+
+
+      
+        </div>
+
+    
+    
+
+
+
+      </div>
+
+
+
+
+    </div>  
+
+    <div id="Right_Panel">
+
+      <div id="Preview_Panel">
+
+        <div id = "Folder_Selector" class="Folder_Selector">
+          <div id="Selected_Banner"></div>
+          <div id="Drop_Zone_Label">Drop or click to<br>select folders</div>
+
+
+
+          <div id="Folder_Preview_Container" class="Folder_Preview_Container">
+            <div id="Folder_Preview">
+              <div id="Folder_Image_Container">
+              <img id="Folder_Preview_Image" src="./Assets/Folder_Icon.png" alt="Image">
+              </div>
+            </div>
+            <div id="Selected_Folder_Summary_Label">1 folder selected</div>
+          </div>
+          </div>
+
+          <img id="Pseudo_Folder_Preview_Image" src="./Assets/Folder_Icon.png" alt="Image">
+          <!-- &#9733; -->
+          <div id="Revert_Button">
+            <div class="Inner_Buttons">
+              <div id="Revert_Button_Icon"></div>
+              <div id="Revert_Button_Label">Revert</div>
+            </div>
+          </div>
+          <div id="Apply_Colour_Button">
+            <div class="Inner_Buttons">
+              <div id="Apply_Colour_Button_Icon"></div>
+              <div id="Apply_Colour_Button_Label">Apply</div>
+            </div>
+          </div>
+          <div id="Loading_Panel" class="Loading_Panel">
+            <div id="Painting_Folder_Label">Preparing folder<br><br>0 of 0</div>
+            <div id=Loading_Bar_Container>
+            <!-- <progress id="Loading_Bar" value="0" max="100"></progress> -->
+            <div id="Progress_Bar_Container">
+              <div id="Progress_Bar"></div>
+          </div>
+
+          
+          </div>
+
+      </div>
+    </div>
+
+  
+  
+  <script>
+    (function () {
+        var Drop_Zone = document.getElementById('Folder_Selector');
+          Drop_Zone.ondragenter = () => {
+          Drag_Enter_Animation();
+          return false;
+        }
+        Drop_Zone.ondragover = () => {
+            return false;
+        };
+        Drop_Zone.ondragleave = () => {
+          Drag_Leave_Animation();
+          return false;
+        };
+        Drop_Zone.ondragend = () => {
+            return false;
+        };
+        Drop_Zone.ondrop = (e) => {
+            e.preventDefault();
+            var All_Selected_Folders = [];
+            var Selected_Folders = e.dataTransfer.files;
+            for(i=0; i < Selected_Folders.length; i++){
+              var Folder = Selected_Folders[i];
+              var Folder_Path = webUtils.getPathForFile(Folder);
+              var Folder_Check = fs.lstatSync(Folder_Path).isDirectory() 
+              if(Folder_Check){
+                All_Selected_Folders = All_Selected_Folders.concat(Folder_Path);
+              }
+            }
+            Folders_Have_Been_Selected(All_Selected_Folders)
+
+            var Drop_Zone = document.getElementsByClassName('Folder_Selector')[0];
+            Drop_Zone.classList.remove('Highlight_Drop_Zone');
+            return false;
+        };
+    })();
+    function Drag_Enter_Animation(){
+      var Drop_Zone = document.getElementsByClassName('Folder_Selector')[0];
+      Drop_Zone.classList.add('Highlight_Drop_Zone');
+      var Preview_Slab = document.getElementsByClassName('Folder_Preview_Container')[0];
+      Preview_Slab.classList.remove('Show_Folder_Preview');
+      Hide_Notification();
+    }
+    function Drag_Leave_Animation(){
+      var Drop_Zone = document.getElementsByClassName('Folder_Selector')[0];
+      Drop_Zone.classList.remove('Highlight_Drop_Zone');
+      var Preview_Slab = document.getElementsByClassName('Folder_Preview_Container')[0];
+      Preview_Slab.classList.remove('Show_Folder_Preview');
+    }
+</script>
+
+
+  
+
+
+  </body>
+</html>
