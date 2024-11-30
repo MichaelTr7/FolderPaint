@@ -15,9 +15,9 @@
 
 <p align="center">
 <a href="https://github.com/MichaelTr7/FolderPaint/releases/download/FolderPaint/FolderPaint.zip>
-  <img src="/Images/Button.png" width = "110"><br/>
-</p>
 
+</p>
+  <img src="/Images/Button.png" width = "110"><br/>
 <p align ="center">
 <img src = "Images/Preview.png" width = "700">
 </p>
