@@ -13,7 +13,7 @@
 <br/>
 
 <p align="center">
-<a href="https://github.com/MichaelTr7/FolderPaint/releases/download/FolderPaintNew/FolderPaint-1.0.0-arm64.dmg"><img src="/Images/Button.png" width="30%"></a>
+<a href="https://github.com/MichaelTr7/FolderPaint/releases/download/FolderPaint/FolderPaint.zip"><img src="/Images/Button.png" width="30%"></a>
 </p>
 
 
