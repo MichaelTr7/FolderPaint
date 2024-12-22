@@ -5,9 +5,6 @@
 
 <p align ="center">
 <img src = "Images/Icon.png" width = "100">
-</p>
-
-<p align="center">
 <b>FolderPaint</b>
 </p>
 
