@@ -3,9 +3,7 @@ const { log } = require('console');
 var fs = require('fs');
 var path = require('path');
 const { ipcRenderer } = require('electron');
-const { webUtils } = require('electron')
-const applescript = require('applescript');
-
+const { webUtils } = require('electron');
 
 window.Selected_Folders = [];
 

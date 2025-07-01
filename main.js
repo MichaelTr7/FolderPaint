@@ -2,7 +2,6 @@
 const { app, BrowserWindow, Menu, ipcMain, dialog} = require('electron')
 const path = require('path')
 const fs = require('fs');
-// const { loadavg } = require('node:os');
 const isDev = !app.isPackaged;
 const scriptPath = isDev
   ? path.join(__dirname, 'assets', 'script.sh')

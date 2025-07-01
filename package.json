@@ -59,15 +59,13 @@
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "electron-packager ."
   },
   "dependencies": {
-    "applescript": "^1.0.0",
-    "electron-store": "^10.0.0"
   },
   "devDependencies": {
     "electron": "^33.2.0",
     "electron-packager": "^17.1.2"
   }
 }
+
