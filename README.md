@@ -11,9 +11,4 @@
 <img src = "Images/Preview2.png" width = "500">
 </p>
 
-### Features
-- Changes colours of folders on macOS
-<br/>
-
-
 
